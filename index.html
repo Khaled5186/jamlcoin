@@ -1,203 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAML - The Camel of Crypto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <meta name="description" content="JAML - عملة رقمية نادرة مستوحاة من قوة الجمل في عالم التشفير">
+    <title>جمل | JAML - عملة المستقبل النادرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Almarai:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.css">
     <style>
         /* CSS Variables */
         :root {
             --gold: #FFD700;
-            --dark-blue: #0F172A;
-            --desert-brown: #3A2C1A;
-            --gradient: linear-gradient(135deg, var(--desert-brown) 0%, var(--dark-blue) 100%);
+            --crypto-blue: #0F1A2F;
+            --sand-gradient: linear-gradient(135deg, #E1B382 0%, #3A2C1A 100%);
+            --neon-effect: 0 0 15px var(--gold);
         }
 
-        /* Base Styles */
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--gradient);
-            color: var(--gold);
+            font-family: 'Cairo', sans-serif;
+            background: var(--crypto-blue);
+            color: white;
             overflow-x: hidden;
         }
 
-        /* Particle.js Background */
-        #particles-js {
+        /* Animated Crypto Particles */
+        .crypto-particles {
             position: fixed;
             width: 100%;
             height: 100%;
             z-index: -1;
-        }
-
-        /* Navigation */
-        .navbar {
-            padding: 1.5rem 5%;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .logo {
-            width: 150px;
-            filter: drop-shadow(0 0 10px var(--gold));
+            opacity: 0.3;
         }
 
         /* Hero Section */
-        .hero {
+        .hero-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 4.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-            margin-bottom: 1.5rem;
-            animation: fadeInDown 1.5s;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            animation: fadeInUp 1.5s;
-        }
-
-        /* CTA Buttons */
-        .cta-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-button {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid var(--gold);
-            padding: 1.2rem 2rem;
-            border-radius: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
 
-        .cta-button::before {
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .animated-camel {
+            width: 400px;
+            filter: drop-shadow(var(--neon-effect));
+            animation: float 6s ease-in-out infinite;
+            margin: 2rem auto;
+        }
+
+        /* Crypto Market Showcase */
+        .crypto-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: var(--sand-gradient);
+        }
+
+        .crypto-card {
+            background: rgba(15, 26, 47, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .crypto-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Advanced Button System */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .super-button {
+            background: linear-gradient(45deg, var(--gold) 0%, #DAA520 100%);
+            border: none;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(255,215,0,0.3);
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .super-button::after {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.2), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
             transform: rotate(45deg);
-            transition: 0.5s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255,215,0,0.2);
-        }
-
-        .cta-button:hover::before {
-            animation: borderGlow 1.5s infinite;
+            animation: buttonGlow 3s infinite;
         }
 
         /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        @keyframes borderGlow {
-            0% { left: -50%; }
+        @keyframes buttonGlow {
+            0% { left: -100%; }
             100% { left: 150%; }
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .cta-grid { grid-template-columns: 1fr 1fr; }
+            .animated-camel { width: 300px; }
+        }
+
         @media (max-width: 768px) {
-            .cta-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
+            .cta-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <nav class="navbar">
-        <img src="logo.png" alt="JAML Logo" class="logo">
-    </nav>
+    <canvas class="crypto-particles"></canvas>
 
-    <section class="hero">
+    <section class="hero-section">
         <div class="hero-content">
-            <h1 class="animate__animated animate__fadeIn">JAML - The Camel of Crypto</h1>
-            <p class="animate__animated animate__fadeIn">Embracing resilience in the blockchain desert</p>
+            <h1 style="font-size: 4rem; margin-bottom: 1.5rem; font-family: 'Almarai'">
+                <span style="color: var(--gold)">JAML</span> - جمل التشفير
+            </h1>
+            <p class="lead-text" style="font-size: 1.5rem; max-width: 800px; margin: 0 auto 3rem;">
+                عملة رقمية نادرة مستوحاة من قوة الجمل في صحراء البلوكتشين
+            </p>
+            <img src="camel-transparent.png" alt="جمل التشفير" class="animated-camel">
+            
             <div class="cta-grid">
-                <a href="whitepaper.pdf" class="cta-button">Whitepaper</a>
-                <a href="#" class="cta-button">Join Telegram</a>
-                <a href="#" class="cta-button">Buy JAML</a>
+                <button class="super-button" onclick="window.open('whitepaper.pdf')">
+                    📜 الورقة البيضاء
+                </button>
+                <button class="super-button" onclick="window.open('https://t.me/jaml_arabic')">
+                    📢 تلغرام
+                </button>
+                <button class="super-button" onclick="window.open('https://twitter.com/jaml_crypto')">
+                    𝕏 تويتر
+                </button>
+                <button class="super-button" onclick="window.open('exchange.html')">
+                    💰 شراء JAML
+                </button>
             </div>
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <section class="crypto-showcase">
+        <div class="crypto-card">
+            <h3>🧮 تقنية فريدة</h3>
+            <p>خوارزميات تشفير من مستوى المؤسسات</p>
+            <img src="blockchain-tech.png" alt="تقنية البلوكتشين" style="width: 100%">
+        </div>
+        <div class="crypto-card">
+            <h3>📈 ندرة عالية</h3>
+            <p>إصدار محدود: 21 مليون عملة فقط</p>
+            <img src="rare-coin.png" alt="عملة نادرة" style="width: 100%">
+        </div>
+        <div class="crypto-card">
+            <h3>🔒 أمان مطلق</h3>
+            <p>عقود ذكية مدققة بواسطة CertiK</p>
+            <img src="security-shield.png" alt="الأمان" style="width: 100%">
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // Particle.js Configuration
-        particlesJS('particles-js', {
+        // Particle Network Configuration
+        particlesJS('crypto-particles', {
             particles: {
-                number: { value: 80 },
+                number: { value: 150 },
                 color: { value: '#FFD700' },
                 shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
+                opacity: { random: true },
+                size: { value: 3, random: true },
                 move: {
                     enable: true,
                     speed: 2,
                     direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
+                    random: true,
+                    out_mode: 'bounce'
                 }
             },
             interactivity: {
-                detect_on: 'canvas',
                 events: {
                     onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' },
-                    resize: true
+                    onclick: { enable: true, mode: 'push' }
                 }
-            },
-            retina_detect: true
+            }
         });
 
-        // Scroll Animation Logic
+        // Advanced Scroll Effects
         window.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.8) {
-                    el.classList.add('animated');
-                }
-            });
+            const scrolled = window.pageYOffset;
+            document.documentElement.style.setProperty('--scroll', `${scrolled}px`);
         });
     </script>
 </body>
