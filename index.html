@@ -1,155 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAML Interface 2.0</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>JAML - الذهب الرقمي المستدام</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2A4365;
-            --secondary: #4299E1;
-            --background: #F7FAFC;
-            --text: #2D3748;
+            --primary: #DAA520; /* ذهبي تقليدي */
+            --secondary: #2C3E50; /* أزرق محايد */
+            --accent: #E74C3C; /* لون تنبيهي */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Almarai', sans-serif;
+            line-height: 1.8;
         }
 
         body {
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            background: #f8f9fa;
+            color: #333;
         }
 
-        .ai-enhanced-container {
+        .hero-section {
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .coin-logo {
+            width: 150px;
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+        }
+
+        .philosophy-container {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 2rem;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
         }
 
-        .smart-sidebar {
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 1rem;
+            margin: 3rem 0;
+        }
+
+        .vision-box {
             background: white;
+            border-radius: 15px;
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 2rem 0;
         }
 
-        .nav-item {
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 8px;
-            transition: 0.3s;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .technical-specs {
+            columns: 2;
+            gap: 3rem;
+            margin: 2rem 0;
         }
 
-        .nav-item:hover {
-            background: #EBF8FF;
-            transform: translateX(5px);
+        .roadmap-timeline {
+            position: relative;
+            padding: 3rem 0;
         }
 
-        .main-content {
-            background: white;
+        .timeline-item {
             padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 3px solid var(--primary);
+            margin-left: 1rem;
+            position: relative;
         }
 
-        .intelligent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .smart-card {
-            padding: 1.5rem;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .smart-card:hover {
-            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
-            transform: translateY(-3px);
-        }
-
-        .contextual-ai {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+        .timeline-item::before {
+            content: "🐫";
+            position: absolute;
+            left: -1.2rem;
+            top: 0;
+            font-size: 2rem;
             background: white;
-            padding: 1rem;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            .ai-enhanced-container {
-                grid-template-columns: 1fr;
-                padding: 1rem;
+            .technical-specs {
+                columns: 1;
             }
         }
     </style>
 </head>
 <body>
-    <div class="ai-enhanced-container">
-        <aside class="smart-sidebar">
-            <div class="nav-item">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M3 12h18M3 6h18M3 18h18"/>
-                </svg>
-                DNI Tools
-            </div>
-            <div class="nav-item">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                API Integration
-            </div>
-            <div class="nav-item">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
-                </svg>
-                Settings
-            </div>
-        </aside>
+    <header class="hero-section">
+        <img src="jaml-logo.png" alt="شعار JAML" class="coin-logo">
+        <h1 style="margin: 1rem 0; font-size: 2.5rem;">JAML - العملة الذهبية للعصر الرقمي</h1>
+        <p>الاستثمار الحكيم في قلب البلوكتشين</p>
+    </header>
 
-        <main class="main-content">
-            <h1>Smart Dashboard</h1>
-            <div class="intelligent-grid">
-                <div class="smart-card">
-                    <h3>OpenAI Integration</h3>
-                    <p>Advanced NLP processing and AI suggestions</p>
+    <main class="philosophy-container">
+        <!-- القسم الفلسفي -->
+        <section>
+            <h2 class="section-title">الفلسفة التأسيسية</h2>
+            
+            <div class="vision-box">
+                <h3>الرؤية الثورية 🚀</h3>
+                <p>تسعى JAML لإعادة تعريف مفهوم القيمة الرقمية من خلال الجمع بين حكمة الاقتصاد التقليدي وابتكارات تقنية البلوكتشين. نعتقد أن الاستقرار المالي يجب أن يكون حقًا عالميًا، وليس امتيازًا نخبويًا.</p>
+            </div>
+
+            <div class="vision-box">
+                <h3>المهمة الاستراتيجية 🎯</h3>
+                <p>1. بناء نظام مالي مقاوم للتقلبات<br>
+                2. تمكين الأفراد من خلال أدوات استثمار ذكية<br>
+                3. خلق جسر بين الاقتصاد الرقمي والواقع الملموس</p>
+            </div>
+        </section>
+
+        <!-- المواصفات الفنية -->
+        <section>
+            <h2 class="section-title">البنية التقنية المتطورة</h2>
+            <div class="technical-specs">
+                <div>
+                    <h3>🧠 العقد الذكي الذكي</h3>
+                    <p>نظام عقود ERC-20 مع ميزات متقدمة:<br>
+                    - آلية إعادة تدوير الضرائب التلقائية<br>
+                    - محفظة مؤسسية متعددة التوقيعات<br>
+                    - نظام مكافآت HODL الديناميكي</p>
                 </div>
-                <div class="smart-card">
-                    <h3>Analytics Engine</h3>
-                    <p>Real-time data visualization</p>
-                </div>
-                <div class="smart-card">
-                    <h3>API Monitor</h3>
-                    <p>System health check</p>
+                
+                <div>
+                    <h3>🔐 الأمان السيبراني</h3>
+                    <p>طبقات حماية متعددة:<br>
+                    - تدقيق بواسطة CertiK & Hacken<br>
+                    - نظام كشف الاختراق اللحظي<br>
+                    - محفظة باردة لحفظ الاحتياطيات</p>
                 </div>
             </div>
-        </main>
-    </div>
+        </section>
 
-    <div class="contextual-ai">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--secondary)">
-            <path d="M9.75 17.94l-4.25-4.13 1.41-1.41 2.84 2.76 6.84-6.63 1.41 1.41-8.25 8z"/>
-        </svg>
-    </div>
+        <!-- خارطة الطريق -->
+        <section>
+            <h2 class="section-title">خارطة التطور الزمني</h2>
+            <div class="roadmap-timeline">
+                <div class="timeline-item">
+                    <h3>2024 - التأسيس الذكي 💡</h3>
+                    <p>- إطلاق الشبكة الرئيسية<br>
+                    - إدراج أولي في منصات DEX<br>
+                    - برنامج الإحالة المجتمعية</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>2025 - التوسع العالمي 🌍</h3>
+                    <p>- شراكات مع مؤسسات مالية<br>
+                    - إطلاق محفظة JAML الخاصة<br>
+                    - دمج تقنية DeFi 2.0</p>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>2026 - الثورة المؤسسية 🏛️</h3>
+                    <p)- إطلاق نظام DAO اللامركزي<br>
+                    - دمج الذكاء الاصطناعي التنبؤي<br>
+                    - التحول إلى شبكة خاصة مستقلة</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الشراكات -->
+        <section>
+            <h2 class="section-title">التحالفات الاستراتيجية</h2>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h3>🤝 شركاء التكنولوجيا</h3>
+                    <p>- Chainlink Oracle Network<br>
+                    - Polygon Scaling Solutions<br>
+                    - The Graph Protocol</p>
+                </div>
+
+                <div class="partner-card">
+                    <h3>🌱 شركاء الاستدامة</h3>
+                    <p>- ClimateTrade Carbon Credits<br>
+                    - SolarCoin Foundation<br>
+                    - Green Blockchain Initiative</p>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
