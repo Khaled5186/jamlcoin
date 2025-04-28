@@ -1,191 +1,172 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAML - الذهب الرقمي المستدام</title>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;700&display=swap" rel="stylesheet">
+    <title>JAML - The Camel of Crypto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Custom CSS Variables */
         :root {
-            --primary: #DAA520; /* ذهبي تقليدي */
-            --secondary: #2C3E50; /* أزرق محايد */
-            --accent: #E74C3C; /* لون تنبيهي */
+            --desert-sand: #E1B382;
+            --camel-brown: #3A2C1A;
+            --golden-accent: #DAA520;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Almarai', sans-serif;
-            line-height: 1.8;
         }
 
         body {
-            background: #f8f9fa;
-            color: #333;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to right, #f5f5f5 50%, #ffffff 50%);
         }
 
-        .hero-section {
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            padding: 4rem 2rem;
-            text-align: center;
-            color: white;
-        }
-
-        .coin-logo {
-            width: 150px;
-            filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
-        }
-
-        .philosophy-container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 2rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 1rem;
-            margin: 3rem 0;
-        }
-
-        .vision-box {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
-
-        .technical-specs {
-            columns: 2;
-            gap: 3rem;
-            margin: 2rem 0;
-        }
-
-        .roadmap-timeline {
-            position: relative;
-            padding: 3rem 0;
-        }
-
-        .timeline-item {
-            padding: 2rem;
-            border-left: 3px solid var(--primary);
-            margin-left: 1rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: "🐫";
-            position: absolute;
-            left: -1.2rem;
+        /* Navigation Bar */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
             top: 0;
-            font-size: 2rem;
-            background: white;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--camel-brown);
+            text-decoration: none;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: var(--camel-brown);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--golden-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8% 8%;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--camel-brown);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .camel-illustration {
+            flex: 1;
+            text-align: center;
+        }
+
+        .camel-svg {
+            width: 600px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+
+            .camel-svg {
+                width: 80%;
+                margin-top: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .technical-specs {
-                columns: 1;
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .camel-svg {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <header class="hero-section">
-        <img src="jaml-logo.png" alt="شعار JAML" class="coin-logo">
-        <h1 style="margin: 1rem 0; font-size: 2.5rem;">JAML - العملة الذهبية للعصر الرقمي</h1>
-        <p>الاستثمار الحكيم في قلب البلوكتشين</p>
-    </header>
+    <nav class="nav-container">
+        <a href="#" class="logo">JAML</a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#tokenomics" class="nav-link">Tokenomics</a>
+            <a href="#community" class="nav-link">Community</a>
+            <a href="#buy" class="nav-link">Buy JAML</a>
+        </div>
+    </nav>
 
-    <main class="philosophy-container">
-        <!-- القسم الفلسفي -->
-        <section>
-            <h2 class="section-title">الفلسفة التأسيسية</h2>
-            
-            <div class="vision-box">
-                <h3>الرؤية الثورية 🚀</h3>
-                <p>تسعى JAML لإعادة تعريف مفهوم القيمة الرقمية من خلال الجمع بين حكمة الاقتصاد التقليدي وابتكارات تقنية البلوكتشين. نعتقد أن الاستقرار المالي يجب أن يكون حقًا عالميًا، وليس امتيازًا نخبويًا.</p>
-            </div>
-
-            <div class="vision-box">
-                <h3>المهمة الاستراتيجية 🎯</h3>
-                <p>1. بناء نظام مالي مقاوم للتقلبات<br>
-                2. تمكين الأفراد من خلال أدوات استثمار ذكية<br>
-                3. خلق جسر بين الاقتصاد الرقمي والواقع الملموس</p>
-            </div>
-        </section>
-
-        <!-- المواصفات الفنية -->
-        <section>
-            <h2 class="section-title">البنية التقنية المتطورة</h2>
-            <div class="technical-specs">
-                <div>
-                    <h3>🧠 العقد الذكي الذكي</h3>
-                    <p>نظام عقود ERC-20 مع ميزات متقدمة:<br>
-                    - آلية إعادة تدوير الضرائب التلقائية<br>
-                    - محفظة مؤسسية متعددة التوقيعات<br>
-                    - نظام مكافآت HODL الديناميكي</p>
-                </div>
-                
-                <div>
-                    <h3>🔐 الأمان السيبراني</h3>
-                    <p>طبقات حماية متعددة:<br>
-                    - تدقيق بواسطة CertiK & Hacken<br>
-                    - نظام كشف الاختراق اللحظي<br>
-                    - محفظة باردة لحفظ الاحتياطيات</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- خارطة الطريق -->
-        <section>
-            <h2 class="section-title">خارطة التطور الزمني</h2>
-            <div class="roadmap-timeline">
-                <div class="timeline-item">
-                    <h3>2024 - التأسيس الذكي 💡</h3>
-                    <p>- إطلاق الشبكة الرئيسية<br>
-                    - إدراج أولي في منصات DEX<br>
-                    - برنامج الإحالة المجتمعية</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h3>2025 - التوسع العالمي 🌍</h3>
-                    <p>- شراكات مع مؤسسات مالية<br>
-                    - إطلاق محفظة JAML الخاصة<br>
-                    - دمج تقنية DeFi 2.0</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h3>2026 - الثورة المؤسسية 🏛️</h3>
-                    <p)- إطلاق نظام DAO اللامركزي<br>
-                    - دمج الذكاء الاصطناعي التنبؤي<br>
-                    - التحول إلى شبكة خاصة مستقلة</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم الشراكات -->
-        <section>
-            <h2 class="section-title">التحالفات الاستراتيجية</h2>
-            <div class="partners-grid">
-                <div class="partner-card">
-                    <h3>🤝 شركاء التكنولوجيا</h3>
-                    <p>- Chainlink Oracle Network<br>
-                    - Polygon Scaling Solutions<br>
-                    - The Graph Protocol</p>
-                </div>
-
-                <div class="partner-card">
-                    <h3>🌱 شركاء الاستدامة</h3>
-                    <p>- ClimateTrade Carbon Credits<br>
-                    - SolarCoin Foundation<br>
-                    - Green Blockchain Initiative</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">The Camel of Crypto</h1>
+            <p class="hero-text">
+                JAML embodies the resilience and strength of the noble camel, 
+                navigating the ever-changing landscape of the crypto world 
+                with unwavering determination and patience.
+            </p>
+        </div>
+        <div class="camel-illustration">
+            <svg class="camel-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- Add your camel SVG illustration here -->
+                <path fill="var(--camel-brown)" d="M250,50 ..."/>
+            </svg>
+        </div>
+    </section>
 </body>
 </html>
