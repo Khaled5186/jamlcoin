@@ -1,225 +1,203 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="JAML - عملة رقمية نادرة مستوحاة من قوة الجمل في عالم التشفير">
-    <title>جمل | JAML - عملة المستقبل النادرة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Almarai:wght@800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.css">
+    <title>JAML - The Resilient Crypto Camel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Berkshire+Swash&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables */
         :root {
-            --gold: #FFD700;
-            --crypto-blue: #0F1A2F;
-            --sand-gradient: linear-gradient(135deg, #E1B382 0%, #3A2C1A 100%);
-            --neon-effect: 0 0 15px var(--gold);
+            --primary-gold: #FFD700;
+            --deep-desert: #2B1B0E;
+            --sand-gradient: linear-gradient(135deg, #F4E6D3 0%, #E1C391 100%);
+            --accent-turquoise: #40E0D0;
         }
 
-        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Cairo', sans-serif;
-            background: var(--crypto-blue);
-            color: white;
-            overflow-x: hidden;
+            font-family: 'Outfit', sans-serif;
+            background: var(--sand-gradient);
+            color: var(--deep-desert);
         }
 
-        /* Animated Crypto Particles */
-        .crypto-particles {
+        /* Modern Navigation */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.3;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
+        .logo {
+            font-family: 'Berkshire Swash', cursive;
+            font-size: 2.2rem;
+            color: var(--deep-desert);
+            text-decoration: none;
+            letter-spacing: 1.2px;
+        }
+
+        .nav-links {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            color: var(--deep-desert);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Animated Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15% 10% 0;
         }
 
         .hero-content {
-            text-align: center;
-            padding: 2rem;
             position: relative;
             z-index: 2;
         }
 
-        .animated-camel {
-            width: 400px;
-            filter: drop-shadow(var(--neon-effect));
-            animation: float 6s ease-in-out infinite;
-            margin: 2rem auto;
+        .hero-title {
+            font-family: 'Berkshire Swash', cursive;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--deep-desert), var(--primary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textFloat 3s ease-in-out infinite;
         }
 
-        /* Crypto Market Showcase */
-        .crypto-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 2rem;
-            background: var(--sand-gradient);
+        .hero-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            opacity: 0.9;
         }
 
-        .crypto-card {
-            background: rgba(15, 26, 47, 0.9);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: 0.4s;
+        .cta-button {
+            padding: 1rem 2.5rem;
+            background: var(--primary-gold);
+            color: var(--deep-desert);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.3);
         }
 
-        .crypto-card:hover {
-            transform: translateY(-10px);
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(255, 215, 0, 0.4);
         }
 
-        /* Advanced Button System */
-        .cta-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1200px;
-            margin: 3rem auto;
-        }
-
-        .super-button {
-            background: linear-gradient(45deg, var(--gold) 0%, #DAA520 100%);
-            border: none;
-            padding: 1.5rem 2rem;
-            border-radius: 15px;
-            font-family: 'Almarai', sans-serif;
-            font-size: 1.2rem;
-            box-shadow: 0 8px 20px rgba(255,215,0,0.3);
+        .camel-illustration {
             position: relative;
-            overflow: hidden;
-            transition: 0.4s;
+            perspective: 1000px;
         }
 
-        .super-button::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: rotate(45deg);
-            animation: buttonGlow 3s infinite;
+        .camel-svg {
+            width: 100%;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+            animation: camelFloat 4s ease-in-out infinite;
         }
 
         /* Animations */
-        @keyframes float {
+        @keyframes camelFloat {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes buttonGlow {
-            0% { left: -100%; }
-            100% { left: 150%; }
+        @keyframes textFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
         }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .cta-grid { grid-template-columns: 1fr 1fr; }
-            .animated-camel { width: 300px; }
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 25%;
+            }
+
+            .hero-content {
+                margin-bottom: 4rem;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
         }
 
         @media (max-width: 768px) {
-            .cta-grid { grid-template-columns: 1fr; }
+            .nav-links {
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .hero-text {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <canvas class="crypto-particles"></canvas>
+    <nav class="nav-container">
+        <a href="#" class="logo">JAML</a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#tokenomics" class="nav-link">Tokenomics</a>
+            <a href="#community" class="nav-link">Community</a>
+            <a href="#buy" class="nav-link">Buy Now</a>
+        </div>
+    </nav>
 
     <section class="hero-section">
         <div class="hero-content">
-            <h1 style="font-size: 4rem; margin-bottom: 1.5rem; font-family: 'Almarai'">
-                <span style="color: var(--gold)">JAML</span> - جمل التشفير
-            </h1>
-            <p class="lead-text" style="font-size: 1.5rem; max-width: 800px; margin: 0 auto 3rem;">
-                عملة رقمية نادرة مستوحاة من قوة الجمل في صحراء البلوكتشين
+            <h1 class="hero-title">Journey Through Crypto Deserts</h1>
+            <p class="hero-text">
+                JAML represents endurance in decentralized finance. Built on robust blockchain technology, 
+                our token combines the stability of camel-like resilience with innovative DeFi solutions 
+                for sustainable growth in volatile markets.
             </p>
-            <img src="camel-transparent.png" alt="جمل التشفير" class="animated-camel">
-            
-            <div class="cta-grid">
-                <button class="super-button" onclick="window.open('whitepaper.pdf')">
-                    📜 الورقة البيضاء
-                </button>
-                <button class="super-button" onclick="window.open('https://t.me/jaml_arabic')">
-                    📢 تلغرام
-                </button>
-                <button class="super-button" onclick="window.open('https://twitter.com/jaml_crypto')">
-                    𝕏 تويتر
-                </button>
-                <button class="super-button" onclick="window.open('exchange.html')">
-                    💰 شراء JAML
-                </button>
-            </div>
+            <a href="#buy" class="cta-button">Start Your Journey</a>
+        </div>
+        <div class="camel-illustration">
+            <svg class="camel-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- Modern camel SVG illustration with geometric patterns -->
+                <path fill="var(--deep-desert)" d="M250,50c..."/>
+                <path fill="var(--primary-gold)" d="M300,200..."/>
+            </svg>
         </div>
     </section>
-
-    <section class="crypto-showcase">
-        <div class="crypto-card">
-            <h3>🧮 تقنية فريدة</h3>
-            <p>خوارزميات تشفير من مستوى المؤسسات</p>
-            <img src="blockchain-tech.png" alt="تقنية البلوكتشين" style="width: 100%">
-        </div>
-        <div class="crypto-card">
-            <h3>📈 ندرة عالية</h3>
-            <p>إصدار محدود: 1 مليار عملة فقط</p>
-            <img src="rare-coin.png" alt="عملة نادرة" style="width: 100%">
-        </div>
-        <div class="crypto-card">
-            <h3>🔒 أمان مطلق</h3>
-            <p>عقود ذكية مدققة بواسطة CertiK</p>
-            <img src="security-shield.png" alt="الأمان" style="width: 100%">
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-        // Particle Network Configuration
-        particlesJS('crypto-particles', {
-            particles: {
-                number: { value: 150 },
-                color: { value: '#FFD700' },
-                shape: { type: 'circle' },
-                opacity: { random: true },
-                size: { value: 3, random: true },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: true,
-                    out_mode: 'bounce'
-                }
-            },
-            interactivity: {
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    onclick: { enable: true, mode: 'push' }
-                }
-            }
-        });
-
-        // Advanced Scroll Effects
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            document.documentElement.style.setProperty('--scroll', `${scrolled}px`);
-        });
-    </script>
 </body>
 </html>
