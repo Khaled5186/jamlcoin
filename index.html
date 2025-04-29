@@ -290,7 +290,103 @@
             </div>
         </div>
     </section>
+<!-- Firebase Login – Appears when Community is clicked -->
+<section id="community" class="about" style="display: none;">
+  <h2>Join the JAML Community</h2>
+  <button id="googleLoginBtn" style="padding: 10px 20px; margin: 10px;">Sign in with Google</button>
 
+  <div id="userSection" style="display:none;">
+    <p>Welcome, <span id="userEmail"></span></p>
+    <input type="text" id="nameInput" placeholder="Enter your name" style="padding:10px; border-radius:5px;">
+    <button onclick="saveName()" style="padding:10px 20px;">Join</button>
+    <p id="message" style="color: #FFD700;"></p>
+  </div>
+
+  <h3>Community Members</h3>
+  <ul id="memberList" style="list-style: none; padding: 0;"></ul>
+</section>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+<script>
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyC74XbrCDLDXtntcBVmfBz1-cpHHgy1J1E",
+    authDomain: "jaml-community.firebaseapp.com",
+    projectId: "jaml-community",
+    storageBucket: "jaml-community.appspot.com",
+    messagingSenderId: "662691584795",
+    appId: "1:662691584795:web:1f7ffb753c9e7eb7f89be",
+    databaseURL: "https://jaml-community-default-rtdb.firebaseio.com"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.database();
+
+  // Handle Google Sign-In
+  document.getElementById("googleLoginBtn").addEventListener("click", function() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider).then(result => {
+      const user = result.user;
+      document.getElementById("userEmail").textContent = user.email;
+      document.getElementById("userSection").style.display = "block";
+    });
+  });
+
+  // Save user's name
+  function saveName() {
+    const name = document.getElementById("nameInput").value.trim();
+    const user = auth.currentUser;
+    const msg = document.getElementById("message");
+
+    if (!name) {
+      msg.textContent = "Please enter your name.";
+      return;
+    }
+
+    const ref = db.ref("members/" + name);
+    ref.get().then(snapshot => {
+      if (snapshot.exists()) {
+        msg.textContent = "This name is already registered.";
+      } else {
+        ref.set({
+          email: user.email,
+          uid: user.uid
+        }).then(() => {
+          msg.textContent = "Welcome to the JAML community!";
+          loadMembers();
+        });
+      }
+    });
+  }
+
+  // Load all members
+  function loadMembers() {
+    const list = document.getElementById("memberList");
+    list.innerHTML = "";
+    db.ref("members").once("value", snapshot => {
+      snapshot.forEach(child => {
+        const li = document.createElement("li");
+        li.textContent = child.key;
+        list.appendChild(li);
+      });
+    });
+  }
+
+  // Show section when "Community" link is clicked
+  const communityLink = document.querySelector('a[href="#community"]');
+  if (communityLink) {
+    communityLink.addEventListener("click", () => {
+      document.getElementById("community").style.display = "block";
+      loadMembers();
+    });
+  }
+</script>
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 JAML Token. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
