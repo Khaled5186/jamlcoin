@@ -1,203 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAML - The Resilient Crypto Camel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Berkshire+Swash&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-gold: #FFD700;
-            --deep-desert: #2B1B0E;
-            --sand-gradient: linear-gradient(135deg, #F4E6D3 0%, #E1C391 100%);
-            --accent-turquoise: #40E0D0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAML – The Camel of Crypto</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    header {
+      background-color: #111;
+      padding: 15px 0;
+    }
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--sand-gradient);
-            color: var(--deep-desert);
-        }
+    nav a {
+      color: #FFD700;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
 
-        /* Modern Navigation */
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 10%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
+    .hero {
+      padding: 40px 20px;
+    }
 
-        .logo {
-            font-family: 'Berkshire Swash', cursive;
-            font-size: 2.2rem;
-            color: var(--deep-desert);
-            text-decoration: none;
-            letter-spacing: 1.2px;
-        }
+    .hero img {
+      width: 220px;
+      border-radius: 50%;
+      border: 5px solid #FFD700;
+      margin-bottom: 25px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-        }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
 
-        .nav-link {
-            color: var(--deep-desert);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
+    p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
 
-        .nav-link:hover {
-            color: var(--primary-gold);
-            transform: translateY(-2px);
-        }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
 
-        /* Animated Hero Section */
-        .hero-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            min-height: 100vh;
-            padding: 15% 10% 0;
-        }
+    .buttons a {
+      display: inline-block;
+      background-color: #FFD700;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      min-width: 160px;
+    }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-family: 'Berkshire Swash', cursive;
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, var(--deep-desert), var(--primary-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: textFloat 3s ease-in-out infinite;
-        }
-
-        .hero-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            max-width: 500px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            padding: 1rem 2.5rem;
-            background: var(--primary-gold);
-            color: var(--deep-desert);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(255, 215, 0, 0.4);
-        }
-
-        .camel-illustration {
-            position: relative;
-            perspective: 1000px;
-        }
-
-        .camel-svg {
-            width: 100%;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
-            animation: camelFloat 4s ease-in-out infinite;
-        }
-
-        /* Animations */
-        @keyframes camelFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes textFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-section {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 25%;
-            }
-
-            .hero-content {
-                margin-bottom: 4rem;
-            }
-
-            .hero-title {
-                font-size: 3.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 2rem;
-            }
-
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .hero-text {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+    footer {
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #222;
+    }
+  </style>
 </head>
 <body>
-    <nav class="nav-container">
-        <a href="#" class="logo">JAML</a>
-        <div class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#tokenomics" class="nav-link">Tokenomics</a>
-            <a href="#community" class="nav-link">Community</a>
-            <a href="#buy" class="nav-link">Buy Now</a>
-        </div>
-    </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">Journey Through Crypto Deserts</h1>
-            <p class="hero-text">
-                JAML represents endurance in decentralized finance. Built on robust blockchain technology, 
-                our token combines the stability of camel-like resilience with innovative DeFi solutions 
-                for sustainable growth in volatile markets.
-            </p>
-            <a href="#buy" class="cta-button">Start Your Journey</a>
-        </div>
-        <div class="camel-illustration">
-            <svg class="camel-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <!-- Modern camel SVG illustration with geometric patterns -->
-                <path fill="var(--deep-desert)" d="M250,50c..."/>
-                <path fill="var(--primary-gold)" d="M300,200..."/>
-            </svg>
-        </div>
-    </section>
+  <header>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#community">Community</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="logo.png" alt="JAML Logo" />
+    <h1>The Camel of Crypto</h1>
+    <p>
+      JAML embodies the resilience and strength of the noble camel, navigating
+      the ever-changing landscape of the crypto world with patience, power, and perseverance.
+    </p>
+
+    <div class="buttons">
+      <a href="https://t.me/JAMLToken" target="_blank">Join Telegram</a>
+      <a href="https://x.com/JamlToken" target="_blank">Follow on X</a>
+      <a href="https://etherscan.io/address/0x6dd12183bF85A0E4405320cDA6B72D6412270630" target="_blank">View Contract</a>
+      <a href="JAML_Whitepaper.pdf" target="_blank">Whitepaper (PDF)</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 JAML Token. All rights reserved.<br/>
+    jamlcoin.com
+  </footer>
+
 </body>
 </html>
