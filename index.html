@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAML - The Camel of Crypto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom CSS Variables */
         :root {
-            --desert-sand: #E1B382;
-            --camel-brown: #3A2C1A;
-            --golden-accent: #DAA520;
+            --gold: #d4af37;
+            --sand: #f5f0e1;
+            --dark: #2c2c2c;
+            --light-dark: #3b3b3b;
         }
 
         * {
@@ -20,153 +20,190 @@
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(to right, #f5f5f5 50%, #ffffff 50%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, var(--sand), #ffffff);
+            color: var(--dark);
+            line-height: 1.7;
         }
 
-        /* Navigation Bar */
-        .nav-container {
+        header {
+            background: var(--sand);
+            padding: 20px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 8%;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--camel-brown);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
             text-decoration: none;
-            letter-spacing: 1.5px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-link {
-            color: var(--camel-brown);
+        nav a {
+            margin-left: 25px;
             text-decoration: none;
+            color: var(--dark);
             font-weight: 600;
-            transition: all 0.3s ease;
             position: relative;
         }
 
-        .nav-link::after {
+        nav a::after {
             content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
             width: 0;
             height: 2px;
-            background: var(--golden-accent);
-            transition: width 0.3s ease;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
         }
 
-        .nav-link:hover::after {
+        nav a:hover::after {
             width: 100%;
         }
 
-        /* Hero Section */
-        .hero-section {
-            display: flex;
-            align-items: center;
-            min-height: 100vh;
-            padding: 8% 8%;
-            margin-top: 80px;
+        .hero {
+            text-align: center;
+            padding: 100px 10% 50px;
         }
 
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
+        .hero h1 {
             font-size: 3.5rem;
-            color: var(--camel-brown);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            color: var(--dark);
         }
 
-        .hero-text {
+        .hero p {
+            margin-top: 20px;
             font-size: 1.2rem;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            color: #555;
         }
 
-        .camel-illustration {
-            flex: 1;
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: var(--gold);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #bfa12a;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .camel-svg {
-            width: 600px;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        .section-text {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+            margin-bottom: 30px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero-section {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 120px;
-            }
-
-            .camel-svg {
-                width: 80%;
-                margin-top: 3rem;
-            }
+        .footer {
+            background: var(--light-dark);
+            color: white;
+            text-align: center;
+            padding: 20px 10%;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 1.5rem;
+            header {
+                flex-direction: column;
+                text-align: center;
             }
-
-            .hero-title {
+            nav {
+                margin-top: 10px;
+            }
+            .hero h1 {
                 font-size: 2.5rem;
             }
-
-            .camel-svg {
-                width: 100%;
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
-<body>
-    <nav class="nav-container">
-        <a href="#" class="logo">JAML</a>
-        <div class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#tokenomics" class="nav-link">Tokenomics</a>
-            <a href="#community" class="nav-link">Community</a>
-            <a href="#buy" class="nav-link">Buy JAML</a>
-        </div>
-    </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">The Camel of Crypto</h1>
-            <p class="hero-text">
-                JAML embodies the resilience and strength of the noble camel, 
-                navigating the ever-changing landscape of the crypto world 
-                with unwavering determination and patience.
-            </p>
-        </div>
-        <div class="camel-illustration">
-            <svg class="camel-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <!-- Add your camel SVG illustration here -->
-                <path fill="var(--camel-brown)" d="M250,50 ..."/>
-            </svg>
-        </div>
-    </section>
+<body>
+
+<header>
+    <a href="#" class="logo">JAML</a>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#community">Community</a>
+        <a href="#buy">Buy JAML</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>The Camel of Crypto</h1>
+    <p>JAML represents resilience, patience, and enduring power. Inspired by the noble spirit of the desert camel, JAML stands firm in the ever-changing tides of the cryptocurrency world, offering unmatched stability and a vision built on strength and trust.</p>
+    <a href="#buy" class="btn">Buy JAML</a>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About JAML</h2>
+    <p class="section-text">
+        JAML is more than just a token; it is a symbol of perseverance. Much like the camel traverses harsh deserts with grace and endurance, JAML navigates the volatile world of crypto with unwavering determination. Our mission is to empower our community by promoting a long-term vision and creating wealth through patience and strategic growth. <br><br>
+        Launched on the Ethereum blockchain, JAML leverages decentralized technology to provide a reliable and transparent investment avenue. Holders of JAML are not just investors; they are part of a movement that values discipline, fortitude, and the spirit of relentless pursuit of success.
+    </p>
+</section>
+
+<section id="tokenomics">
+    <h2 class="section-title">Tokenomics</h2>
+    <p class="section-text">
+        - Total Supply: 1,000,000,000 JAML Tokens<br>
+        - Community Airdrop: 70% — Distributed to encourage strong community growth.<br>
+        - Liquidity Provision: 20% — Reserved for adding liquidity on decentralized exchanges.<br>
+        - Development Fund: 10% — To support future innovations, marketing, and partnerships.<br><br>
+        Our tokenomics model ensures that the majority of tokens remain in the hands of the community, driving organic and sustainable growth while supporting a thriving ecosystem.
+    </p>
+</section>
+
+<section id="community">
+    <h2 class="section-title">Join Our Community</h2>
+    <p class="section-text">
+        At JAML, community is everything. Our journey mirrors the journey of the camel — steadfast, resilient, and strong. We invite you to be a part of our global movement, where patience is rewarded, and collaboration fuels our vision. Join us across our platforms and become a key player in the next big revolution in crypto.<br><br>
+        Follow us on:
+        <br>
+        - Twitter (X): <a href="https://x.com/JamlToken" target="_blank">JAML Official</a><br>
+        - Telegram: <a href="https://t.me/JAMLToken" target="_blank">JAML Community</a><br>
+        Together, we march towards a horizon of unlimited possibilities.
+    </p>
+</section>
+
+<section id="buy">
+    <h2 class="section-title">Buy JAML</h2>
+    <p class="section-text">
+        JAML will soon be available for trading on decentralized exchanges. Our liquidity pools are being carefully planned to ensure maximum stability and minimal volatility. <br><br>
+        Trading Coming Soon — Stay tuned for updates via our social media channels!
+    </p>
+    <a href="#" class="btn">Trading Soon</a>
+</section>
+
+<div class="footer">
+    &copy; 2025 JAML Token. All Rights Reserved.
+</div>
+
 </body>
 </html>
