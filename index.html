@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAML - جمال التشفير الأسطوري</title>
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@700&family=El+Messiri&display=swap" rel="stylesheet">
+    <meta name="description" content="JAML - عملة رقمية نادرة مستوحاة من قوة الجمل في عالم التشفير">
+    <title>جمل | JAML - عملة المستقبل النادرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Almarai:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.8/glider.min.css">
     <style>
-        /* نظام التصميم الذكي */
+        /* CSS Variables */
         :root {
-            --primary: #FFD93D;
-            --secondary: #0F1A3D;
-            --accent: #6BCB77;
-            --matrix: linear-gradient(45deg, #000 25%, var(--primary) 50%, #000 75%);
+            --gold: #FFD700;
+            --crypto-blue: #0F1A2F;
+            --sand-gradient: linear-gradient(135deg, #E1B382 0%, #3A2C1A 100%);
+            --neon-effect: 0 0 15px var(--gold);
         }
 
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -22,186 +25,200 @@
         }
 
         body {
-            font-family: 'El Messiri', sans-serif;
-            background: var(--secondary);
+            font-family: 'Cairo', sans-serif;
+            background: var(--crypto-blue);
             color: white;
             overflow-x: hidden;
-            perspective: 1000px;
         }
 
-        /* نظام الجمل الذكي */
-        .quantum-camel {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            margin: 3rem auto;
-            transform-style: preserve-3d;
-            animation: quantumSpin 20s infinite linear;
-        }
-
-        .quantum-camel::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            background: var(--matrix);
-            background-size: 400%;
-            filter: blur(20px);
-            animation: matrixFlow 4s linear infinite;
-        }
-
-        .quantum-camel img {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            z-index: 2;
-            filter: drop-shadow(0 0 30px var(--primary));
-        }
-
-        /* نظام الجسيمات الذكي */
-        .cyber-particles {
+        /* Animated Crypto Particles */
+        .crypto-particles {
             position: fixed;
             width: 100%;
             height: 100%;
-            pointer-events: none;
             z-index: -1;
+            opacity: 0.3;
         }
 
-        /* الأزرار الذكية */
-        .holographic-button {
-            background: transparent;
-            border: 3px solid var(--primary);
-            padding: 1.5rem 3rem;
-            font-size: 1.5rem;
-            color: var(--primary);
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .animated-camel {
+            width: 400px;
+            filter: drop-shadow(var(--neon-effect));
+            animation: float 6s ease-in-out infinite;
+            margin: 2rem auto;
+        }
+
+        /* Crypto Market Showcase */
+        .crypto-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: var(--sand-gradient);
+        }
+
+        .crypto-card {
+            background: rgba(15, 26, 47, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .crypto-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Advanced Button System */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .super-button {
+            background: linear-gradient(45deg, var(--gold) 0%, #DAA520 100%);
+            border: none;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 20px rgba(255,215,0,0.3);
             position: relative;
             overflow: hidden;
             transition: 0.4s;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
         }
 
-        .holographic-button::before {
+        .super-button::after {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, var(--primary), transparent);
-            animation: buttonFlow 3s infinite linear;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: buttonGlow 3s infinite;
         }
 
-        /* الأنيميشن المعقد */
-        @keyframes quantumSpin {
-            0% { transform: rotateY(0) rotateZ(0); }
-            100% { transform: rotateY(360deg) rotateZ(360deg); }
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        @keyframes matrixFlow {
-            0% { background-position: 0 0; }
-            100% { background-position: 400% 0; }
+        @keyframes buttonGlow {
+            0% { left: -100%; }
+            100% { left: 150%; }
         }
 
-        @keyframes buttonFlow {
-            0% { transform: rotate(45deg) translateX(-50%); }
-            100% { transform: rotate(45deg) translateX(50%); }
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .cta-grid { grid-template-columns: 1fr 1fr; }
+            .animated-camel { width: 300px; }
         }
 
-        /* الواجهة الهولوغرامية */
-        .hologram-interface {
-            position: relative;
-            padding: 4rem;
-            margin: 4rem auto;
-            max-width: 1200px;
-            border: 3px solid var(--primary);
-            transform-style: preserve-3d;
-            box-shadow: 0 0 50px var(--primary);
-        }
-
-        .crypto-data {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-        }
-
-        /* التأثيرات ثلاثية الأبعاد */
-        .quantum-layer {
-            transform: translateZ(50px);
-            text-shadow: 0 0 10px var(--primary);
+        @media (max-width: 768px) {
+            .cta-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <canvas class="cyber-particles"></canvas>
+    <canvas class="crypto-particles"></canvas>
 
-    <main class="hologram-interface">
-        <h1 class="quantum-layer" style="font-size: 4rem; text-align: center; font-family: 'Changa'">
-            <span style="color: var(--accent)">JAML</span> - الذهب الرقمي
-        </h1>
-
-        <div class="quantum-camel">
-            <img src="camel-hologram.png" alt="جمل التشفير الكمي">
-        </div>
-
-        <div class="crypto-data">
-            <div class="data-card">
-                <h3>📡 البلوكشين الكمي</h3>
-                <p>تقنية حوسبة كمومية متقدمة لحماية المعاملات</p>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 style="font-size: 4rem; margin-bottom: 1.5rem; font-family: 'Almarai'">
+                <span style="color: var(--gold)">JAML</span> - جمل التشفير
+            </h1>
+            <p class="lead-text" style="font-size: 1.5rem; max-width: 800px; margin: 0 auto 3rem;">
+                عملة رقمية نادرة مستوحاة من قوة الجمل في صحراء البلوكتشين
+            </p>
+            <img src="camel-transparent.png" alt="جمل التشفير" class="animated-camel">
+            
+            <div class="cta-grid">
+                <button class="super-button" onclick="window.open('whitepaper.pdf')">
+                    📜 الورقة البيضاء
+                </button>
+                <button class="super-button" onclick="window.open('https://t.me/jaml_arabic')">
+                    📢 تلغرام
+                </button>
+                <button class="super-button" onclick="window.open('https://twitter.com/jaml_crypto')">
+                    𝕏 تويتر
+                </button>
+                <button class="super-button" onclick="window.open('exchange.html')">
+                    💰 شراء JAML
+                </button>
             </div>
-            <div class="data-card">
-                <h3>🔐 التشفير الذاتي</h3>
-                <p>خوارزميات تطورية تتعلم من الهجمات</p>
-            </div>
         </div>
+    </section>
 
-        <div style="text-align: center; margin-top: 4rem;">
-            <button class="holographic-button" onclick="window.open('whitepaper.pdf')">
-                الوثيقة الذكية
-            </button>
-            <button class="holographic-button" onclick="window.open('https://t.me/jaml_quantum')">
-                الشبكة العصبية
-            </button>
+    <section class="crypto-showcase">
+        <div class="crypto-card">
+            <h3>🧮 تقنية فريدة</h3>
+            <p>خوارزميات تشفير من مستوى المؤسسات</p>
+            <img src="blockchain-tech.png" alt="تقنية البلوكتشين" style="width: 100%">
         </div>
-    </main>
+        <div class="crypto-card">
+            <h3>📈 ندرة عالية</h3>
+            <p>إصدار محدود: 21 مليون عملة فقط</p>
+            <img src="rare-coin.png" alt="عملة نادرة" style="width: 100%">
+        </div>
+        <div class="crypto-card">
+            <h3>🔒 أمان مطلق</h3>
+            <p>عقود ذكية مدققة بواسطة CertiK</p>
+            <img src="security-shield.png" alt="الأمان" style="width: 100%">
+        </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        // نظام الجسيمات الكمي
-        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('.cyber-particles'), alpha: true });
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        // Particle Network Configuration
+        particlesJS('crypto-particles', {
+            particles: {
+                number: { value: 150 },
+                color: { value: '#FFD700' },
+                shape: { type: 'circle' },
+                opacity: { random: true },
+                size: { value: 3, random: true },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: true,
+                    out_mode: 'bounce'
+                }
+            },
+            interactivity: {
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' }
+                }
+            }
+        });
 
-        // إعداد الجسيمات
-        const particles = new THREE.BufferGeometry();
-        const particlePositions = new Float32Array(5000 * 3);
-        
-        for (let i = 0; i < 15000; i += 3) {
-            particlePositions[i] = (Math.random() - 0.5) * 10;
-            particlePositions[i + 1] = (Math.random() - 0.5) * 10;
-            particlePositions[i + 2] = (Math.random() - 0.5) * 10;
-        }
-
-        particles.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
-        const particleMaterial = new THREE.PointsMaterial({ color: 0xFFD93D, size: 0.02 });
-        const particleSystem = new THREE.Points(particles, particleMaterial);
-
-        scene.add(particleSystem);
-        camera.position.z = 5;
-
-        // أنيميشن الجسيمات
-        function animate() {
-            requestAnimationFrame(animate);
-            particleSystem.rotation.x += 0.001;
-            particleSystem.rotation.y += 0.001;
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // التفاعل مع التمرير
+        // Advanced Scroll Effects
         window.addEventListener('scroll', () => {
-            document.documentElement.style.setProperty('--scroll', `${window.scrollY * 0.5}px`);
+            const scrolled = window.pageYOffset;
+            document.documentElement.style.setProperty('--scroll', `${scrolled}px`);
         });
     </script>
 </body>
