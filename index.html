@@ -1,209 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAML - The Camel of Crypto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>JAML - جمال التشفير الأسطوري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@700&family=El+Messiri&display=swap" rel="stylesheet">
     <style>
+        /* نظام التصميم الذكي */
         :root {
-            --gold: #d4af37;
-            --sand: #f5f0e1;
-            --dark: #2c2c2c;
-            --light-dark: #3b3b3b;
+            --primary: #FFD93D;
+            --secondary: #0F1A3D;
+            --accent: #6BCB77;
+            --matrix: linear-gradient(45deg, #000 25%, var(--primary) 50%, #000 75%);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, var(--sand), #ffffff);
-            color: var(--dark);
-            line-height: 1.7;
+            font-family: 'El Messiri', sans-serif;
+            background: var(--secondary);
+            color: white;
+            overflow-x: hidden;
+            perspective: 1000px;
         }
 
-        header {
-            background: var(--sand);
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-decoration: none;
-        }
-
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
+        /* نظام الجمل الذكي */
+        .quantum-camel {
             position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 3rem auto;
+            transform-style: preserve-3d;
+            animation: quantumSpin 20s infinite linear;
         }
 
-        nav a::after {
+        .quantum-camel::before {
             content: '';
-            width: 0;
-            height: 2px;
-            background: var(--gold);
             position: absolute;
-            left: 0;
-            bottom: -5px;
-            transition: 0.3s;
+            inset: -20px;
+            background: var(--matrix);
+            background-size: 400%;
+            filter: blur(20px);
+            animation: matrixFlow 4s linear infinite;
         }
 
-        nav a:hover::after {
+        .quantum-camel img {
+            position: relative;
             width: 100%;
+            height: 100%;
+            object-fit: contain;
+            z-index: 2;
+            filter: drop-shadow(0 0 30px var(--primary));
         }
 
-        .hero {
-            text-align: center;
-            padding: 100px 10% 50px;
+        /* نظام الجسيمات الذكي */
+        .cyber-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            color: var(--dark);
+        /* الأزرار الذكية */
+        .holographic-button {
+            background: transparent;
+            border: 3px solid var(--primary);
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
         }
 
-        .hero p {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: #555;
+        .holographic-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, var(--primary), transparent);
+            animation: buttonFlow 3s infinite linear;
         }
 
-        .btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 30px;
-            background: var(--gold);
-            color: white;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
+        /* الأنيميشن المعقد */
+        @keyframes quantumSpin {
+            0% { transform: rotateY(0) rotateZ(0); }
+            100% { transform: rotateY(360deg) rotateZ(360deg); }
         }
 
-        .btn:hover {
-            background: #bfa12a;
+        @keyframes matrixFlow {
+            0% { background-position: 0 0; }
+            100% { background-position: 400% 0; }
         }
 
-        section {
-            padding: 80px 10%;
+        @keyframes buttonFlow {
+            0% { transform: rotate(45deg) translateX(-50%); }
+            100% { transform: rotate(45deg) translateX(50%); }
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            text-align: center;
+        /* الواجهة الهولوغرامية */
+        .hologram-interface {
+            position: relative;
+            padding: 4rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            border: 3px solid var(--primary);
+            transform-style: preserve-3d;
+            box-shadow: 0 0 50px var(--primary);
         }
 
-        .section-text {
-            font-size: 1.1rem;
-            color: #555;
-            text-align: justify;
-            margin-bottom: 30px;
+        .crypto-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
         }
 
-        .footer {
-            background: var(--light-dark);
-            color: white;
-            text-align: center;
-            padding: 20px 10%;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            nav {
-                margin-top: 10px;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
+        /* التأثيرات ثلاثية الأبعاد */
+        .quantum-layer {
+            transform: translateZ(50px);
+            text-shadow: 0 0 10px var(--primary);
         }
     </style>
 </head>
-
 <body>
+    <canvas class="cyber-particles"></canvas>
 
-<header>
-    <a href="#" class="logo">JAML</a>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#tokenomics">Tokenomics</a>
-        <a href="#community">Community</a>
-        <a href="#buy">Buy JAML</a>
-    </nav>
-</header>
+    <main class="hologram-interface">
+        <h1 class="quantum-layer" style="font-size: 4rem; text-align: center; font-family: 'Changa'">
+            <span style="color: var(--accent)">JAML</span> - الذهب الرقمي
+        </h1>
 
-<section class="hero">
-    <h1>The Camel of Crypto</h1>
-    <p>JAML represents resilience, patience, and enduring power. Inspired by the noble spirit of the desert camel, JAML stands firm in the ever-changing tides of the cryptocurrency world, offering unmatched stability and a vision built on strength and trust.</p>
-    <a href="#buy" class="btn">Buy JAML</a>
-</section>
+        <div class="quantum-camel">
+            <img src="camel-hologram.png" alt="جمل التشفير الكمي">
+        </div>
 
-<section id="about">
-    <h2 class="section-title">About JAML</h2>
-    <p class="section-text">
-        JAML is more than just a token; it is a symbol of perseverance. Much like the camel traverses harsh deserts with grace and endurance, JAML navigates the volatile world of crypto with unwavering determination. Our mission is to empower our community by promoting a long-term vision and creating wealth through patience and strategic growth. <br><br>
-        Launched on the Ethereum blockchain, JAML leverages decentralized technology to provide a reliable and transparent investment avenue. Holders of JAML are not just investors; they are part of a movement that values discipline, fortitude, and the spirit of relentless pursuit of success.
-    </p>
-</section>
+        <div class="crypto-data">
+            <div class="data-card">
+                <h3>📡 البلوكشين الكمي</h3>
+                <p>تقنية حوسبة كمومية متقدمة لحماية المعاملات</p>
+            </div>
+            <div class="data-card">
+                <h3>🔐 التشفير الذاتي</h3>
+                <p>خوارزميات تطورية تتعلم من الهجمات</p>
+            </div>
+        </div>
 
-<section id="tokenomics">
-    <h2 class="section-title">Tokenomics</h2>
-    <p class="section-text">
-        - Total Supply: 1,000,000,000 JAML Tokens<br>
-        - Community Airdrop: 70% — Distributed to encourage strong community growth.<br>
-        - Liquidity Provision: 20% — Reserved for adding liquidity on decentralized exchanges.<br>
-        - Development Fund: 10% — To support future innovations, marketing, and partnerships.<br><br>
-        Our tokenomics model ensures that the majority of tokens remain in the hands of the community, driving organic and sustainable growth while supporting a thriving ecosystem.
-    </p>
-</section>
+        <div style="text-align: center; margin-top: 4rem;">
+            <button class="holographic-button" onclick="window.open('whitepaper.pdf')">
+                الوثيقة الذكية
+            </button>
+            <button class="holographic-button" onclick="window.open('https://t.me/jaml_quantum')">
+                الشبكة العصبية
+            </button>
+        </div>
+    </main>
 
-<section id="community">
-    <h2 class="section-title">Join Our Community</h2>
-    <p class="section-text">
-        At JAML, community is everything. Our journey mirrors the journey of the camel — steadfast, resilient, and strong. We invite you to be a part of our global movement, where patience is rewarded, and collaboration fuels our vision. Join us across our platforms and become a key player in the next big revolution in crypto.<br><br>
-        Follow us on:
-        <br>
-        - Twitter (X): <a href="https://x.com/JamlToken" target="_blank">JAML Official</a><br>
-        - Telegram: <a href="https://t.me/JAMLToken" target="_blank">JAML Community</a><br>
-        Together, we march towards a horizon of unlimited possibilities.
-    </p>
-</section>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script>
+        // نظام الجسيمات الكمي
+        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('.cyber-particles'), alpha: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-<section id="buy">
-    <h2 class="section-title">Buy JAML</h2>
-    <p class="section-text">
-        JAML will soon be available for trading on decentralized exchanges. Our liquidity pools are being carefully planned to ensure maximum stability and minimal volatility. <br><br>
-        Trading Coming Soon — Stay tuned for updates via our social media channels!
-    </p>
-    <a href="#" class="btn">Trading Soon</a>
-</section>
+        // إعداد الجسيمات
+        const particles = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(5000 * 3);
+        
+        for (let i = 0; i < 15000; i += 3) {
+            particlePositions[i] = (Math.random() - 0.5) * 10;
+            particlePositions[i + 1] = (Math.random() - 0.5) * 10;
+            particlePositions[i + 2] = (Math.random() - 0.5) * 10;
+        }
 
-<div class="footer">
-    &copy; 2025 JAML Token. All Rights Reserved.
-</div>
+        particles.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+        const particleMaterial = new THREE.PointsMaterial({ color: 0xFFD93D, size: 0.02 });
+        const particleSystem = new THREE.Points(particles, particleMaterial);
 
+        scene.add(particleSystem);
+        camera.position.z = 5;
+
+        // أنيميشن الجسيمات
+        function animate() {
+            requestAnimationFrame(animate);
+            particleSystem.rotation.x += 0.001;
+            particleSystem.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // التفاعل مع التمرير
+        window.addEventListener('scroll', () => {
+            document.documentElement.style.setProperty('--scroll', `${window.scrollY * 0.5}px`);
+        });
+    </script>
 </body>
 </html>
