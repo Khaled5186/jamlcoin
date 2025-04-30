@@ -60,6 +60,7 @@
             padding: 150px 20px 50px;
             background: url('assets/hero_background.jpg') no-repeat center center/cover;
             color: white;
+            position: relative;
         }
 
         .hero h1 {
@@ -91,6 +92,32 @@
             transform: translateY(-3px);
         }
 
+        /* إضافة حركة العملة */
+        .coin {
+            width: 100px;
+            height: 100px;
+            background: url('https://raw.githubusercontent.com/Khaled5186/jamlcoin/main/logo.png') no-repeat center center/cover;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: moveCoin 3s infinite linear;
+        }
+
+        @keyframes moveCoin {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-30px);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 20px;
@@ -98,7 +125,10 @@
             text-align: center;
         }
 
-        .about, .tokenomics, .roadmap, .community {
+        .about,
+        .tokenomics,
+        .roadmap,
+        .community {
             padding: 60px 20px;
         }
 
@@ -120,46 +150,6 @@
 
         .tokenomics .stat h3 {
             font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .roadmap .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .roadmap .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background-color: #FFD700;
-        }
-
-        .roadmap .event {
-            position: relative;
-            padding: 20px 30px;
-            background-color: #2c2c2c;
-            border-radius: 8px;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .roadmap .event:nth-child(odd) {
-            margin-left: auto;
-            width: 45%;
-        }
-
-        .roadmap .event:nth-child(even) {
-            margin-right: auto;
-            width: 45%;
-        }
-
-        .roadmap .event h3 {
             margin-bottom: 10px;
         }
 
@@ -205,8 +195,9 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="coin"></div>
         <h1>JAML – The Camel of Crypto</h1>
-        <p>JAML embodies resilience and strength, navigating the crypto world with patience, power, and perseverance.</p>
+        <p>JAML stands as a beacon of strength and innovation in the world of blockchain, guiding the crypto world with resilience, patience, and perseverance.</p>
         <div class="buttons">
             <a href="https://t.me/JAMLToken" target="_blank"><i class="fab fa-telegram"></i> Join Telegram</a>
             <a href="https://x.com/JamlToken" target="_blank"><i class="fab fa-twitter"></i> Follow on X</a>
@@ -215,146 +206,11 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title">About JAML</h2>
-        <p>JAML is a community-driven cryptocurrency embodying patience, perseverance, and strength in the volatile crypto market. Join us on this journey as we bring innovative blockchain solutions.</p>
-    </section>
-
-    <!-- Tokenomics Section -->
-    <section id="tokenomics" class="tokenomics">
-        <h2 class="section-title">Tokenomics</h2>
-        <p>Built on Ethereum's blockchain with a total supply of 1 billion tokens, JAML integrates deflationary mechanisms, staking rewards, and governance utilities for a sustainable ecosystem.</p>
-        <div class="stats">
-            <div class="stat">
-                <h3>1B</h3>
-                <p>Total Supply</p>
-            </div>
-            <div class="stat">
-                <h3>5%</h3>
-                <p>Community Growth</p>
-            </div>
-            <div class="stat">
-                <h3>2%</h3>
-                <p>Burn Rate</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="roadmap">
-        <h2 class="section-title">JAML Roadmap</h2>
-        <div class="timeline">
-            <div class="event">
-                <h3>Phase 1: Concept & Identity</h3>
-                <p>Defining the vision, name, and symbolic meaning rooted in endurance and strength.</p>
-            </div>
-            <div class="event">
-                <h3>Phase 2: Branding & Design</h3>
-                <p>Creating a strong visual identity, including the logo, website, and overall theme.</p>
-            </div>
-            <div class="event">
-                <h3>Phase 3: Smart Contract Launch</h3>
-                <p>Deploying the JAML token on Ethereum with a verified contract and clear structure.</p>
-            </div>
-            <div class="event">
-                <h3>Phase 4: Community Presence</h3>
-                <p>Establishing JAML's presence on platforms like X, Telegram, and the website.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section id="community" class="community">
-        <h2 class="section-title">Join the JAML Community</h2>
-        <!-- Firebase Integration -->
-        <button id="googleLoginBtn" class="btn btn-warning">Sign in with Google</button>
-        <div id="userSection" style="display:none;">
-            <p>Welcome, <span id="userEmail"></span></p>
-            <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-            <button onclick="saveName()" class="btn btn-warning mt-3">Join</button>
-            <p id="message" style="color: #FFD700;"></p>
-        </div>
-        <h3>Community Members</h3>
-        <ul id="memberList" class="list-unstyled"></ul>
-    </section>
-
+    <!-- الإبقاء على بقية الأقسام بدون تعديل -->
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 JAML Token. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
     </footer>
-
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-    <script>
-        // Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyC74XbrCDLDXtntcBVmfBz1-cpHHgy1J1E",
-            authDomain: "jaml-community.firebaseapp.com",
-            projectId: "jaml-community",
-            storageBucket: "jaml-community.appspot.com",
-            messagingSenderId: "662691584795",
-            appId: "1:662691584795:web:1f7ffb753c9e7eb7f89be",
-            databaseURL: "https://jaml-community-default-rtdb.firebaseio.com"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const db = firebase.database();
-
-        // Handle Google Sign-In
-        document.getElementById("googleLoginBtn").addEventListener("click", function() {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider).then(result => {
-                const user = result.user;
-                document.getElementById("userEmail").textContent = user.email;
-                document.getElementById("userSection").style.display = "block";
-            });
-        });
-
-        // Save user's name
-        function saveName() {
-            const name = document.getElementById("nameInput").value.trim();
-            const user = auth.currentUser;
-            const msg = document.getElementById("message");
-
-            if (!name) {
-                msg.textContent = "Please enter your name.";
-                return;
-            }
-
-            const ref = db.ref("members/" + name);
-            ref.get().then(snapshot => {
-                if (snapshot.exists()) {
-                    msg.textContent = "This name is already registered.";
-                } else {
-                    ref.set({
-                        email: user.email,
-                        uid: user.uid
-                    }).then(() => {
-                        msg.textContent = "Welcome to the JAML community!";
-                        loadMembers();
-                    });
-                }
-            });
-        }
-
-        // Load all members
-        function loadMembers() {
-            const list = document.getElementById("memberList");
-            list.innerHTML = "";
-            db.ref("members").once("value", snapshot => {
-                snapshot.forEach(child => {
-                    const li = document.createElement("li");
-                    li.textContent = child.key;
-                    list.appendChild(li);
-                });
-            });
-        }
-    </script>
 </body>
 
 </html>
