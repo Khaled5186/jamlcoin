@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="JAML - The Camel of Crypto. Innovative solutions for the blockchain ecosystem.">
     <meta name="keywords" content="JAML, cryptocurrency, blockchain, tokenomics, crypto community">
     <meta name="author" content="JAML Team">
     <title>JAML – The Camel of Crypto</title>
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <!-- CSS Framework -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <!-- Custom CSS -->
+    
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -44,6 +47,17 @@
         }
         header nav a:hover {
             text-decoration: underline;
+        }
+        .logo img {
+            height: 50px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .logo img:hover {
+            transform: scale(1.05);
         }
         .hero {
             text-align: center;
@@ -114,12 +128,13 @@
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
         .tokenomics .stats .stat {
             background-color: #1a1a1a;
             padding: 20px;
             border-radius: 8px;
-            width: 150px;
+            min-width: 150px;
             text-align: center;
         }
         .tokenomics .stats .stat h3 {
@@ -162,14 +177,13 @@
             border-radius: 8px;
             color: white;
             margin-bottom: 20px;
+            width: 45%;
         }
         .roadmap .event:nth-child(odd) {
             margin-left: auto;
-            width: 45%;
         }
         .roadmap .event:nth-child(even) {
             margin-right: auto;
-            width: 45%;
         }
         .roadmap .event h3 {
             margin-bottom: 10px;
@@ -195,7 +209,7 @@
     <header>
         <nav>
             <div class="logo">
-             <img src="https://raw.githubusercontent.com/Khaled5186/jamlcoin/main/logo.png" alt="JAML Logo" style="height: 50px; position: fixed; top: 10px; left: 10px; z-index: 1000;">
+                <img src="https://raw.githubusercontent.com/Khaled5186/jamlcoin/main/logo.png" alt="JAML Logo">
             </div>
             <div>
                 <a href="#about">About</a>
@@ -252,144 +266,138 @@
 
     <!-- Roadmap Section -->
     <section id="roadmap" class="roadmap">
-  <h2>JAML Roadmap</h2>
-  <div class="timeline">
-
-    <div class="event">
-      <h3>Phase 1: Concept & Identity</h3>
-      <p>Establishing the core idea of JAML. Defining its vision, name, and symbolic meaning rooted in endurance and strength.</p>
-    </div>
-
-    <div class="event">
-      <h3>Phase 2: Branding & Design</h3>
-      <p>Creating a strong visual identity — including the logo, website, and overall theme — that reflects the essence of JAML.</p>
-    </div>
-
-    <div class="event">
-      <h3>Phase 3: Smart Contract Launch</h3>
-      <p>Deploying the JAML token on the Ethereum blockchain with a verified contract and clear structure.</p>
-    </div>
-
-    <div class="event">
-      <h3>Phase 4: Community Presence</h3>
-      <p>Building the official JAML presence across key platforms like X (Twitter), Telegram, and a dedicated website.</p>
-    </div>
-
-    <div class="event">
-      <h3>Phase 5: Utility Planning</h3>
-      <p>Exploring practical use-cases for the token in future dApps, tools, and creative digital applications.</p>
-    </div>
-
-    <div class="event">
-      <h3>Phase 6: Ecosystem Expansion</h3>
-      <p>Gradually developing an ecosystem around JAML — focusing on organic growth, innovation, and long-term vision.</p>
-    </div>
-
-  </div>
-</section>
+        <h2>JAML Roadmap</h2>
+        <div class="timeline">
+            <div class="event">
+                <h3>Phase 1: Concept & Identity</h3>
+                <p>Establishing the core idea of JAML. Defining its vision, name, and symbolic meaning rooted in endurance and strength.</p>
+            </div>
+            <div class="event">
+                <h3>Phase 2: Branding & Design</h3>
+                <p>Creating a strong visual identity — including the logo, website, and overall theme — that reflects the essence of JAML.</p>
+            </div>
+            <div class="event">
+                <h3>Phase 3: Smart Contract Launch</h3>
+                <p>Deploying the JAML token on the Ethereum blockchain with a verified contract and clear structure.</p>
+            </div>
+            <div class="event">
+                <h3>Phase 4: Community Presence</h3>
+                <p>Building the official JAML presence across key platforms like X (Twitter), Telegram, and a dedicated website.</p>
+            </div>
+            <div class="event">
+                <h3>Phase 5: Utility Planning</h3>
+                <p>Exploring practical use-cases for the token in future dApps, tools, and creative digital applications.</p>
+            </div>
+            <div class="event">
+                <h3>Phase 6: Ecosystem Expansion</h3>
+                <p>Gradually developing an ecosystem around JAML — focusing on organic growth, innovation, and long-term vision.</p>
             </div>
         </div>
     </section>
-<!-- Firebase Login – Appears when Community is clicked -->
-<section id="community" class="about" style="display: none;">
-  <h2>Join the JAML Community</h2>
-  <button id="googleLoginBtn" style="padding: 10px 20px; margin: 10px;">Sign in with Google</button>
 
-  <div id="userSection" style="display:none;">
-    <p>Welcome, <span id="userEmail"></span></p>
-    <input type="text" id="nameInput" placeholder="Enter your name" style="padding:10px; border-radius:5px;">
-    <button onclick="saveName()" style="padding:10px 20px;">Join</button>
-    <p id="message" style="color: #FFD700;"></p>
-  </div>
+    <!-- Community Section -->
+    <section id="community" class="about" style="display: none;">
+        <h2>Join the JAML Community</h2>
+        <button id="googleLoginBtn" class="auth-button">Sign in with Google</button>
+        <div id="userSection" style="display:none;">
+            <p>Welcome, <span id="userEmail"></span></p>
+            <input type="text" id="nameInput" placeholder="Enter your name" class="form-input">
+            <button onclick="saveName()" class="submit-button">Join</button>
+            <p id="message" class="status-message"></p>
+        </div>
+        <h3>Community Members</h3>
+        <ul id="memberList" class="members-list"></ul>
+    </section>
 
-  <h3>Community Members</h3>
-  <ul id="memberList" style="list-style: none; padding: 0;"></ul>
-</section>
-
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
-
-<script>
-  // Firebase Configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyC74XbrCDLDXtntcBVmfBz1-cpHHgy1J1E",
-    authDomain: "jaml-community.firebaseapp.com",
-    projectId: "jaml-community",
-    storageBucket: "jaml-community.appspot.com",
-    messagingSenderId: "662691584795",
-    appId: "1:662691584795:web:1f7ffb753c9e7eb7f89be",
-    databaseURL: "https://jaml-community-default-rtdb.firebaseio.com"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.database();
-
-  // Handle Google Sign-In
-  document.getElementById("googleLoginBtn").addEventListener("click", function() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then(result => {
-      const user = result.user;
-      document.getElementById("userEmail").textContent = user.email;
-      document.getElementById("userSection").style.display = "block";
-    });
-  });
-
-  // Save user's name
-  function saveName() {
-    const name = document.getElementById("nameInput").value.trim();
-    const user = auth.currentUser;
-    const msg = document.getElementById("message");
-
-    if (!name) {
-      msg.textContent = "Please enter your name.";
-      return;
-    }
-
-    const ref = db.ref("members/" + name);
-    ref.get().then(snapshot => {
-      if (snapshot.exists()) {
-        msg.textContent = "This name is already registered.";
-      } else {
-        ref.set({
-          email: user.email,
-          uid: user.uid
-        }).then(() => {
-          msg.textContent = "Welcome to the JAML community!";
-          loadMembers();
-        });
-      }
-    });
-  }
-
-  // Load all members
-  function loadMembers() {
-    const list = document.getElementById("memberList");
-    list.innerHTML = "";
-    db.ref("members").once("value", snapshot => {
-      snapshot.forEach(child => {
-        const li = document.createElement("li");
-        li.textContent = child.key;
-        list.appendChild(li);
-      });
-    });
-  }
-
-  // Show section when "Community" link is clicked
-  const communityLink = document.querySelector('a[href="#community"]');
-  if (communityLink) {
-    communityLink.addEventListener("click", () => {
-      document.getElementById("community").style.display = "block";
-      loadMembers();
-    });
-  }
-</script>
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 JAML Token. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
     </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC74XbrCDLDXtntcBVmfBz1-cpHHgy1J1E",
+            authDomain: "jaml-community.firebaseapp.com",
+            projectId: "jaml-community",
+            storageBucket: "jaml-community.appspot.com",
+            messagingSenderId: "662691584795",
+            appId: "1:662691584795:web:1f7ffb753c9e7eb7f89be",
+            databaseURL: "https://jaml-community-default-rtdb.firebaseio.com"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.database();
+
+        // Auth Handler
+        document.getElementById("googleLoginBtn").addEventListener("click", () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    const user = result.user;
+                    document.getElementById("userEmail").textContent = user.email;
+                    document.getElementById("userSection").style.display = "block";
+                })
+                .catch((error) => {
+                    console.error("Authentication error:", error);
+                });
+        });
+
+        // Save User Data
+        function saveName() {
+            const name = document.getElementById("nameInput").value.trim();
+            const user = auth.currentUser;
+            const msg = document.getElementById("message");
+
+            if (!name) {
+                msg.textContent = "Please enter your name.";
+                return;
+            }
+
+            const userRef = db.ref("members/" + name);
+            userRef.get().then((snapshot) => {
+                if (snapshot.exists()) {
+                    msg.textContent = "Name already registered!";
+                } else {
+                    userRef.set({
+                        email: user.email,
+                        uid: user.uid,
+                        timestamp: firebase.database.ServerValue.TIMESTAMP
+                    }).then(() => {
+                        msg.textContent = "Welcome to JAML community!";
+                        loadMembers();
+                    });
+                }
+            });
+        }
+
+        // Load Members
+        function loadMembers() {
+            const list = document.getElementById("memberList");
+            list.innerHTML = "";
+            db.ref("members").once("value", (snapshot) => {
+                snapshot.forEach((child) => {
+                    const li = document.createElement("li");
+                    li.textContent = child.key;
+                    list.appendChild(li);
+                });
+            });
+        }
+
+        // Community Link Handler
+        document.querySelector('a[href="#community"]').addEventListener("click", (e) => {
+            e.preventDefault();
+            document.getElementById("community").style.display = "block";
+            window.scrollTo({ top: document.getElementById("community").offsetTop, behavior: "smooth" });
+            loadMembers();
+        });
+    </script>
 </body>
 </html>
